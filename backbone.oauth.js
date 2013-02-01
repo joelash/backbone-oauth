@@ -1,4 +1,4 @@
-/* 
+/*
  * backbone.oauth.js v0.1
  * Copyright (C) 2012 Philipp Nolte
  * backbone.oauth.js may be freely distributed under the MIT license.
@@ -35,8 +35,7 @@
     _.extend(this, options);
 
     // Make the onRedirect function publicy available.
-    _.bind(this.onRedirect, this);
-    window.OAuthRedirect = this.onRedirect;
+    window.OAuthRedirect = _.bind(this.onRedirect, this);
   };
 
   // Inject methods and properties.
@@ -61,14 +60,14 @@
       if (!this.auth_url) throw new Error('No auth url given.');
       if (!this.redirect_url) throw new Error('No redirect url given.');
 
-      this.dialog = window.open(this.setupAuthUrl());    
+      this.dialog = window.open(this.setupAuthUrl(), '', 'width=800,height=600,top=100,left=' + (screen.width / 2 - 400));
     },
 
     // Called on redirection inside the OAuth dialog window. This indicates,
     // that the dialog auth process has finished. It has to be checked, if
     // the auth was successful or not.
     onRedirect: function(hash) {
-      var params = parseHash(location.hash);
+      var params = parseHash(hash);
       if (this.authSuccess(params)) {
         this.onSuccess(params);
       } else {
@@ -94,7 +93,7 @@
       auth_url: 'https://www.facebook.com/dialog/oauth'
     },
     Google: {
-      auth_url: 'https://www.facebook.com/dialog/oauth',
+      auth_url: 'https://accounts.google.com/o/oauth2/auth',
       scope: 'https://www.googleapis.com/auth/userinfo.profile'
     }
   };
