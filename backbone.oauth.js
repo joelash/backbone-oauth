@@ -1,6 +1,7 @@
 /*
- * backbone.oauth.js v0.1
+ * backbone.oauth.js v0.2
  * Copyright (C) 2012 Philipp Nolte
+ * Copyright (C) 2013 Joel Friedman
  * backbone.oauth.js may be freely distributed under the MIT license.
  */
 
