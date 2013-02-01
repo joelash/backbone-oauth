@@ -1,4 +1,4 @@
-backbone-oauth V0.1
+backbone-oauth V0.2
 ===================
 
 This simple OAuth 2.0 plugin for [Backbone.js](http://backbone.js) provides an OAuth class that handles client-side authentication with OAuth providers such as Facebook or Google.
@@ -9,7 +9,7 @@ The most simple use case would be something like this:
 // Configurate the Facebook OAuth settings.
 _.extend(Backbone.OAuth.configs.Facebook, {
     client_id: 'YOURAPPID',
-    redirect_url: window.location.protocoll + '//' + window.location.host + '/auth_redirect.html',
+    redirect_url: window.location.protocol + '//' + window.location.host + '/auth_redirect.html',
 
     // Called after successful authentication.
     onSuccess: function(params) {
